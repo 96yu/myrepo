@@ -1,26 +1,35 @@
-﻿using Dalamud.Game.Command;
+using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using SamplePlugin.Windows;
+using PFStratCentral.Classes.StratProvider.Interface;
+using PFStratCentral.Classes.StratManager.Interface;
+using PFStratCentral.Classes.StratProvider;
+using PFStratCentral.Classes.StratManager;
+using System.Net.Http;
+using Dalamud.Logging;
 
 namespace SamplePlugin;
 
-public sealed class Plugin : IDalamudPlugin
+public sealed class PfStratCentralPlugin : IDalamudPlugin
 {
     private const string CommandName = "/pmycommand";
 
     private DalamudPluginInterface PluginInterface { get; init; }
     private ICommandManager CommandManager { get; init; }
     public Configuration Configuration { get; init; }
+    public IStratProvider StratProvider { get; init; }
+    public IStratManager StratManager { get; init; }
+    [PluginService] public static IPluginLog Logger { get; private set; } = null!;
 
-    public readonly WindowSystem WindowSystem = new("SamplePlugin");
+    public readonly WindowSystem WindowSystem = new("PfStratCentralPlugin");
     private ConfigWindow ConfigWindow { get; init; }
     private MainWindow MainWindow { get; init; }
 
-    public Plugin(
+    public PfStratCentralPlugin(
         [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
         [RequiredVersion("1.0")] ICommandManager commandManager,
         [RequiredVersion("1.0")] ITextureProvider textureProvider)
@@ -30,6 +39,9 @@ public sealed class Plugin : IDalamudPlugin
 
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
+
+        StratProvider = new JsonStratProvider(this);
+        StratManager = new StratManager(StratProvider);
 
         // you might normally want to embed resources and load them from the manifest stream
         var file = new FileInfo(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png"));

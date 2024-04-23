@@ -1,0 +1,16 @@
+{
+    "p11s": [
+        {
+            "id": "5f87c9b7-452f-4fba-ae65-36eb6f0bfcdc",
+            "name": "Second strat",
+            "details": "Kill the boss 5Head"
+        }
+    ],
+    "p12s": [
+        {
+            "id": "5f9de9f7-1a97-40c5-a908-4d6850eb6cfb",
+            "name": "First strat",
+            "details": "Kill the boss 4Head"
+        }
+    ]
+}

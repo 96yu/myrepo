@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{8BDCA5F3-28FE-407C-A855-DB419A0703F3}"
+	ProjectSection(SolutionItems) = preProject
+		strats.json = strats.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PFStratCentral", "PFStratCentral\PFStratCentral.csproj", "{B5867798-08A3-40B3-B5E7-4607D935B72F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5867798-08A3-40B3-B5E7-4607D935B72F}.Debug|x64.ActiveCfg = Debug|x64
+		{B5867798-08A3-40B3-B5E7-4607D935B72F}.Debug|x64.Build.0 = Debug|x64
+		{B5867798-08A3-40B3-B5E7-4607D935B72F}.Release|x64.ActiveCfg = Release|x64
+		{B5867798-08A3-40B3-B5E7-4607D935B72F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B17E85B1-5F60-4440-9F9A-3DDE877E8CDF}
+	EndGlobalSection
+EndGlobal

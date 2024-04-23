@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Numerics;
 using Dalamud.Interface.Internal;
 using Dalamud.Interface.Utility;
@@ -10,12 +10,12 @@ namespace SamplePlugin.Windows;
 public class MainWindow : Window, IDisposable
 {
     private IDalamudTextureWrap? GoatImage;
-    private Plugin Plugin;
+    private PfStratCentralPlugin Plugin;
 
     // We give this window a hidden ID using ##
     // So that the user will see "My Amazing Window" as window title,
     // but for ImGui the ID is "My Amazing Window##With a hidden ID"
-    public MainWindow(Plugin plugin, IDalamudTextureWrap? goatImage)
+    public MainWindow(PfStratCentralPlugin plugin, IDalamudTextureWrap? goatImage)
         : base("My Amazing Window##With a hidden ID", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
         SizeConstraints = new WindowSizeConstraints
